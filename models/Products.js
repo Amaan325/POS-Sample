@@ -6,14 +6,14 @@ const Product = mongoose.Schema({
       type: String,
       required: [true, "Name is required"]
    },
-   id: {
-      type: Number
+   sku: {
+      type: String
    },
-   category: [{
-      type: Category,
-      ref: 'Category'
-   }
-   ],
+   category: {
+      type: mongoose.Schema.ObjectId,
+      ref: "Category",
+      required: [true, "Catgeory Must Belong To Category Collection!"],
+   },
    price: {
       type: Number,
       default: 0
@@ -21,10 +21,17 @@ const Product = mongoose.Schema({
    barcode: {
       type: String
    },
-   stockQuantity: {
+   quantity: {
       type: Number,
       default: 0
-   }
+   },
+   isDeleted:{
+      type : Boolean ,
+      default:false
+  },isActive:{
+      type : Boolean ,
+      default:true
+  } 
 }
    ,
    {

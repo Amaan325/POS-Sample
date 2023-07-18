@@ -70,7 +70,9 @@ exports.getAll = (Model, options) =>
       isDeleted: false,
     };
 
-    const doc = await Model.find(filter);
+    const query = Model.find(filter);
+    if (options?.populate) query.populate(options.populate);
+    const doc = await query;
 
     // SEND RESPONSE
     res.status(200).json({
