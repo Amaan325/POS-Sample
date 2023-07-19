@@ -12,9 +12,17 @@ const Order = mongoose.Schema({
     } ,
     payment_status : {
         type : Boolean
+    } ,
+    isActive : {
+        type : Boolean ,
+        default : true 
+    } ,
+    isDeleted  : {
+        type : Boolean ,
+        default : false
     }
 });
 
-module.exports = Order ;
+module.exports = mongoose.model("Order" , Order) ;
 
 
