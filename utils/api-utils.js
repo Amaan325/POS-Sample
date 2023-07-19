@@ -23,7 +23,7 @@ exports.updateOne = (Model) =>
     });
 
     if (!doc) {
-      return next(new AppError("No document found with that ID", 404));
+      return next("No document found with that ID", 404);
     }
 
     res.status(200).json({
@@ -53,7 +53,7 @@ exports.getOne = (Model, options) =>
     const doc = await query;
 
     if (!doc) {
-      return next(new AppError("No document found with that ID", 404));
+      return next("No document found with that ID", 404);
     }
 
     res.status(200).json({
