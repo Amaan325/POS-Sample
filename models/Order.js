@@ -15,6 +15,6 @@ const Order = mongoose.Schema({
     }
 });
 
-module.exports = Order ;
+module.exports = mongoose.model("Order" , Order) ;
 
 
