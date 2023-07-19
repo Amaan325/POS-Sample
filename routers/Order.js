@@ -1,9 +1,9 @@
 const express = require("express");
 const orderRouter = express.Router();
-const {getOrder , getAllOrders , createOrder}  = require("../controllers/Order");
- 
+const {getOne  , getAll , createOne } = require("../utils/api-utils")
+const Order = require("../models/Order");
 
-orderRouter.route("/").get(getAllOrders).post(createOrder);
-orderRouter.route("/:id").get(getOrder) ;
+orderRouter.route("/").get(getOne(Order)).post(createOne(Order));
+orderRouter.route("/:id").get(getAll(Order)) ;
 
 module.exports = orderRouter;
