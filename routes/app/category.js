@@ -1,6 +1,5 @@
 const express = require("express");
 const categoryRouter = express.Router();
-const {getCategory ,createCategory, updateCategory , deleteCategory}   = require("../../controllers/Category");
 const { getAll, getOne ,createOne, updateOne, deleteOne } = require("../../utils/api-utils");
 const Category = require("../../models/Category");
 
