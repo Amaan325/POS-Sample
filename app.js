@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const mongoose = require("mongoose");
 
-const {userRouter , productRouter , orderRouter , categoryRouter} = require("./routers/index");
+const routers = require("./routes/index");
 const { connect } = require("mongoose");
 const port = process.env.PORT
 const connectdb = require("./connectdb/connectdb");
@@ -21,11 +21,7 @@ app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 //   })
 //   .then(() => console.log("DB connection successful!"));
 
-
-app.use("/api/v1/users" , userRouter);
-app.use("/api/v1/product" , productRouter);
-app.use("/api/v1/order" , orderRouter);
-app.use("/api/v1/category" , categoryRouter);
+app.use("/api/v1", require("./routes/index"));
 
 const start = async () => {
     await connectdb();
