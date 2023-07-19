@@ -15,11 +15,11 @@ const DB = process.env.DB;
 app.use(express.json({ limit: "10kb" }));
 app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
-mongoose
-  .connect(DB, {
-    useNewUrlParser: true,
-  })
-  .then(() => console.log("DB connection successful!"));
+// mongoose
+//   .connect(DB, {
+//     useNewUrlParser: true,
+//   })
+//   .then(() => console.log("DB connection successful!"));
 
 
 app.use("/api/v1/users" , userRouter);
